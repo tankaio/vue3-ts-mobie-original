@@ -97,7 +97,7 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 ./node_modules/.bin/cz init cz-conventional-changelog --save-dev --save-exact
 ```
 完成这两步后，在项目下运行git cz看到效果了。  
-然后可以在package.json添加npm script：
+然后也可以在package.json添加npm script：
 ```json
 {
   "script": {
@@ -108,6 +108,14 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 }
 ```
 这样，对于项目的其他开发者来说，如果他们想通过Commitizen完成一次提交，只需要运行npm run cm就可以了。
+
+运行命令后面板会出现下面六步提示，自行选择每一步即可：
+> 第一步： 选择这次提交的内容类型：提交类型是以后生成CHANGELOG分类题目  
+> 第二步： 这次提交影响范围  
+> 第三步：简短描述：如果你使用gitlab 或者github 进行远程分支Merge requset 的时候，这个就是默认的title  
+> 第四步：详细描述  
+> 第五步：是否重大更新（改变）：一般具有重要的大版本或者破坏原来代码的时候需要标记一下  
+> 第六步：这次提交对哪些打开的 issue 有影响：类似于 github 开源模式，代码的维护不论需求还是fix都有对应的issue讨论进行code的支撑。git message 这一步就是为了关联issue。如果选择是，可写上相关issue 对应号码。
 
 ### 在git commit上运行Commitizen
 这里，我们将展示如何使用git hooks和--hook命令行参数将Commitizen合并到现有的git commit工作流中。
@@ -123,3 +131,17 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 }
 ```
 > Why exec < /dev/tty? By default, git hooks are not interactive. This command allows the user to use their terminal to interact with Commitizen during the hook.
+
+### 自动产生CHANGELOG
+正规的写提交记录最后就是为了让团队其他人看懂，还有一个目的是为了更规范的产生CHANGELOG，下面看看自动产生CHANGELOG的步骤。
+1. 安装产生changelog插件conventional-changelog-cli
+```shell
+pnpm install conventional-changelog-cli --save-dev
+```
+2. 在 package.json 添加脚本
+```shell
+"changelog": "conventional-changelog -p angular -u -i CHANGELOG.md -s -r 0"
+```
+3. 执行脚本：pnpm changeLog，查看结果
+
+这里测试了下：用**pnpm changeLog**和**git commit -m "type: xxx"**提交的都可以生成日志文件，所以如果团队每个人都能按规范提交的话，第一步Commitizen约束是可以不需要的。
