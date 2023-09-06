@@ -139,8 +139,11 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 pnpm install conventional-changelog-cli --save-dev
 ```
 2. 在 package.json 添加脚本
-```shell
-"changelog": "conventional-changelog -p angular -u -i CHANGELOG.md -s -r 0"
+```
+# -p 用于指定 Conventional Commits 的规范，例如 angular 或 atom。
+# -i 参数用于指定输入文件，即更改日志文件，通常为 CHANGELOG.md。
+# -s 参数用于生成简化版的更改日志，而不是完整版本。
+"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
 ```
 3. 执行脚本：pnpm changeLog，查看结果
 
