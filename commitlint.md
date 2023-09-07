@@ -1,0 +1,44 @@
+# commitlint
+在一个团队中，每个人的git的commit信息都不一样，五花八门，没有一个机制很难保证规范化，如何才能规范化呢？可能你想到的是git的hook机制，去写shell脚本去实现。这当然可以，其实JavaScript有一个很好的工具可以实现这个模板，它就是commitlint。  
+> 详情请查看 [commitlint官方文档](https://commitlint.js.org/#/guides-local-setup?id=install-commitlint)
+
+## 安装commitlint
+```shell
+# Install and configure if needed
+npm install --save-dev @commitlint/{cli,config-conventional}
+# For Windows:
+npm install --save-dev @commitlint/config-conventional @commitlint/cli
+
+# Configure commitlint to use conventional config
+echo "module.exports = { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+```
+Alternatively the configuration can be defined in a commitlint.config.js, .commitlintrc.js, .commitlintrc, .commitlintrc.json, .commitlintrc.yml file or a commitlint field in package.json.
+
+## 安装husky
+```shell
+# Install Husky
+pnpm add husky --save-dev
+
+# Activate hooks
+# 执行 husky install 会得到一个目录.husky，.husky中存放各个钩子文件
+npx husky install
+```
+建议在package.json中添加一条prepare脚本
+```shell
+{
+  "script":{
+    # prepare是npm的钩子
+    # prepare脚本会在 pnpm install 之后自动运行
+    # 这样你的小伙伴clone了你的项目之后运行`pnpm install`会自动安装husky
+    "prepare": "husky install"
+  }
+}
+```
+
+### Add hook
+```shell
+# 为我们git仓库添加一个commit-msg钩子,运行
+npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
+```
+这样在我们的.husky目录下生成一个commit-msg的脚本  
+然后在git commit时就会触发 commitlint 校验
