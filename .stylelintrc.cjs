@@ -1,4 +1,5 @@
 module.exports = {
+  // stylelint-config-prettier 库已经废弃了，stylelint V15自带了相关功能，这个包可以不引入了
   extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier'],
   plugins: ['stylelint-order'],
   // 不同格式的文件指定自定义语法

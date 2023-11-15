@@ -18,8 +18,29 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    // "types": ["vite-plugin-svg-icons/client"],
+    "baseUrl": "./",
+    "paths": {
+      // 别名，这里也得配置
+      // 不配置baseUrl和paths的话，类似`import SvgIcon from '@/components/SvgIcon/index.vue'`这种使用了 别名 的引入会显示红波浪线（提示：Cannot find module ... or its corresponding type declarations.）
+      "@/*": ["./src/*"]
+    }
+    // 如果baseUrl设置为'src',那paths就应该配置为{"@/*": "./*"},如下：
+    // "baseUrl": "src",
+    // "paths": {
+    //  "@/*": ["./*"]
+    // }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "vite.config.ts",
+    "src/types/auto-imports.d.ts"
+    // "mock/**/*.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

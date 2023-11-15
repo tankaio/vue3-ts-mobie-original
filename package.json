@@ -2,7 +2,6 @@
   "name": "vue3-ts-mobie-original",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
@@ -15,7 +14,8 @@
     "stylelint": "stylelint \"./**/*.{css,scss,vue,html}\"",
     "stylelint-fix": "stylelint \"./**/*.{css,scss,vue,html}\" --fix",
     "prettier": "prettier --write './**/*.{html,vue,ts,js,cjs,tsx,jsx,json,md}'",
-    "format": "pnpm eslint-fix && pnpm stylelint-fix && pnpm prettier"
+    "format": "pnpm eslint-fix && pnpm stylelint-fix && pnpm prettier",
+    "i18nScan": "i18next-scanner --config src/i18n/i18next-scaner.config.js"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx}": [
@@ -34,13 +34,22 @@
     }
   },
   "dependencies": {
-    "vue": "^3.3.4"
+    "axios": "^1.5.1",
+    "crc": "^4.3.2",
+    "mockjs": "^1.1.0",
+    "pinia": "^2.1.7",
+    "vant": "^4.7.1",
+    "vue": "^3.3.4",
+    "vue-i18n": "^9.5.0",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
+    "@iconify/vue": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^6.6.0",
+    "@vant/auto-import-resolver": "^1.0.1",
     "@vitejs/plugin-vue": "^4.2.3",
     "conventional-changelog-cli": "^4.0.0",
     "cz-conventional-changelog": "^3.3.0",
@@ -53,6 +62,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^9.17.0",
     "husky": "^8.0.3",
+    "i18next-scanner": "^4.4.0",
     "lint-staged": "^14.0.1",
     "postcss": "^8.4.29",
     "postcss-html": "^1.5.0",
@@ -66,7 +76,11 @@
     "stylelint-config-standard-vue": "^1.0.0",
     "stylelint-order": "^6.0.3",
     "typescript": "^5.2.2",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.5",
+    "vite-plugin-mock": "^2.9.6",
+    "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^1.8.5"
   }
 }

@@ -24,5 +24,14 @@ module.exports = {
     extraFileExtensions: ['.vue']
   },
   plugins: ['vue'],
-  rules: {}
+  rules: {
+    // 组件名应该总是由多个单词组成
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: ['index'] //需要忽略的组件名
+      }
+    ],
+    '@typescript-eslint/strict-boolean-expressions': 'off'
+  }
 }
