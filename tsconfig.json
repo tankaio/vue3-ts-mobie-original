@@ -39,8 +39,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "vite.config.ts",
-    "src/types/auto-imports.d.ts"
-    // "mock/**/*.ts"
+    ".eslintrc.cjs"
   ],
+  // "exclude": ["mock/**/*.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

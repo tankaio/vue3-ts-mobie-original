@@ -7,6 +7,9 @@ import { VantResolver } from '@vant/auto-import-resolver'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { viteMockServe } from 'vite-plugin-mock'
 
+const envConfig = require('./configs/index.js')
+console.log('vite-config.ts-envConfig--', envConfig)
+
 console.log('__dirname--', __dirname)
 console.log('__filename--', __filename)
 console.log('resolve--', resolve)
