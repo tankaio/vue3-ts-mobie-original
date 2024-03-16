@@ -1,7 +1,8 @@
 module.exports = {
   SITE_ENV: 'test',
   SITE_CODE: 'amg',
-  SITE_TEMPLATE: 'template-1',
+  SITE_TEMPLATE: 'template-01',
+  SITE_THEME: 'theme-001',
   SITE_SYMBOL: 'AMG',
   SITE_NAME: '奔驰',
   SITE_ICON: 'favicon-amg.png',

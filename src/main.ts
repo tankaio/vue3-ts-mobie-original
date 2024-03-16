@@ -7,6 +7,23 @@ import { setupRouter } from './router'
 import { setupStore } from './store'
 import { setupI18n, lang, _lang } from './i18n'
 
+import './styles/index.scss'
+const { SITE_TEMPLATE, SITE_THEME } = process.env
+console.log('main.js-SITE_TEMPLATE--', SITE_TEMPLATE)
+console.log('main.js-SITE_THEME--', SITE_THEME)
+
+// const f = async (): Promise<void> =>
+//   await import(`./styles/${SITE_TEMPLATE}/${SITE_THEME}/index.scss`)
+// await f()
+
+import(`./styles/${SITE_TEMPLATE}/${SITE_THEME}/index.scss`)
+  .then((res) => {
+    console.log('res--', res)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+
 // declare module '@vue/runtime-core' {
 //   interface ComponentCustomProperties {
 //     $t_c: (key: string) => string;
@@ -20,6 +37,16 @@ import { setupI18n, lang, _lang } from './i18n'
 //     $filters: FilterType
 //   }
 // }
+
+console.log('main.ts-import.meta.env--', import.meta.env)
+console.log('main.ts-import.meta.env.hah--', import.meta.env.hah)
+
+console.log('main.ts-process.env--', process.env)
+console.log('main.ts-process.env.more--', process.env.more)
+
+console.log('main.ts-self.env--', self.env)
+
+console.log('main.ts-__APP_VERSION__--', __APP_VERSION__)
 
 /**
  * 定义启动初始化函数

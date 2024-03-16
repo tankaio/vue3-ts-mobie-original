@@ -19,6 +19,7 @@ module.exports = {
    * always => 必须
    */
   rules: {
+    'import-notation': 'url', //为 @import 规则指定字符串或 URL 表示法。可选值："string"|"url"。（eg: 'string'-->@import 'foo.css'; 'url'--> @import url(foo.css);）
     'value-keyword-case': null, // 在 css 中使用 v-bind，不报错
     'no-descending-specificity': null, // 禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器
     'no-descending-specificity': null, // 禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器

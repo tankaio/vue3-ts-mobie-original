@@ -1,7 +1,8 @@
 module.exports = {
   SITE_ENV: 'pre',
   SITE_CODE: 'bmw',
-  SITE_TEMPLATE: 'template-1',
+  SITE_TEMPLATE: 'template-01',
+  SITE_THEME: 'theme-001',
   SITE_SYMBOL: 'BMW',
   SITE_NAME: '宝马',
   SITE_ICON: 'favicon-bmw.png',

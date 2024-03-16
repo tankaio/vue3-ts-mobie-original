@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
 import { useSysStore } from '@/store/modules/sys.ts'
+// import XUpload from '@/components/x-upload/index.vue'
 
 // !. TypeScript的语法，叫非空断言操作符（non-null assertion operator），和 ?. 相反，这个符号表示对象后面的属性一定不是null或undefined。
 const instance = getCurrentInstance()

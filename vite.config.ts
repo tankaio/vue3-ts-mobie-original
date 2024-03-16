@@ -7,12 +7,13 @@ import { VantResolver } from '@vant/auto-import-resolver'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { viteMockServe } from 'vite-plugin-mock'
 
-const envConfig = require('./configs/index.js')
-console.log('vite-config.ts-envConfig--', envConfig)
+const { normalizeConfigs, siteEnvConfigs } = require('./configs/index.js')
+console.log('vite-config.ts-siteEnvConfigs--', siteEnvConfigs)
+console.log('vite-config.ts-normalizeConfigs(siteEnvConfigs)--', normalizeConfigs(siteEnvConfigs))
 
-console.log('__dirname--', __dirname)
-console.log('__filename--', __filename)
-console.log('resolve--', resolve)
+console.log('vite.config-ts-__dirname--', __dirname)
+console.log('vite.config-ts-__filename--', __filename)
+// console.log('vite-config.ts-process.env--', process.env)
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -62,6 +63,15 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src')
     }
+  },
+  define: {
+    // 'process.env': normalizeConfigs(siteEnvConfigs),
+    'process.env': siteEnvConfigs,
+    'self.env': { self_name: 'self_name_text' },
+    'process.env.more': JSON.stringify('more and more'), // 浏览器环境中使用：process.env.API_URL
+    'import.meta.env': siteEnvConfigs, // 这样写无法将自定义的环境变量注入到 import.meta.env 中
+    'import.meta.env.hah': JSON.stringify('hahstr'), // 这样写可以将自定义的环境变量注入到 import.meta.env 中
+    __APP_VERSION__: JSON.stringify('v1.0.0') // 浏览器环境中使用：直接写 __APP_VERSION__ 即可
   }
   // css: {
   //   postcss: {

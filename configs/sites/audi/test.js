@@ -1,7 +1,8 @@
 module.exports = {
   SITE_ENV: 'test',
   SITE_CODE: 'audi',
-  SITE_TEMPLATE: 'template-1',
+  SITE_TEMPLATE: 'template-01',
+  SITE_THEME: 'theme-001',
   SITE_SYMBOL: 'AUDI',
   SITE_NAME: '奥迪',
   SITE_ICON: 'favicon-audi.png',
