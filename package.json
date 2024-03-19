@@ -16,7 +16,10 @@
     "stylelint-fix": "stylelint \"./**/*.{css,scss,vue,html}\" --fix",
     "prettier": "prettier --write './**/*.{html,vue,ts,js,cjs,tsx,jsx,json,md}'",
     "format": "pnpm eslint-fix && pnpm stylelint-fix && pnpm prettier",
-    "i18nScan": "i18next-scanner --config src/i18n/i18next-scaner.config.js"
+    "i18nScan-1": "i18next-scanner --config src/i18n/i18next-scaner.config.js",
+    "i1n8Scan": "i18next-scanner --config src/i18n/i18next-scaner.config.js && node src/i18n/json2Excel.js",
+    "i18n2Excel": "node src/i18n/json2Excel.js",
+    "i18n2Json": "node src/i18n/excel2Json.js"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx}": [

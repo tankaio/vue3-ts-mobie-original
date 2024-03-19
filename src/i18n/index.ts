@@ -17,8 +17,6 @@ const i18n = createI18n({
 })
 console.log('i18n--', i18n)
 
-// 单独声明一个函数用于格式化翻译 不进行扫描
-
 export function lang(key: string): string {
   // const hashKey = `k${crc32.str(key).toString(16)}`
   const hashKey = `k${crc32(key).toString(16)}`
