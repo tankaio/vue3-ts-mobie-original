@@ -82,7 +82,13 @@ git push origin master
 
 > 详情请移至 **2.1.2-commitlint.md** 文件查看
 
-> NOTE：vite3.x 开始生成的项目，package.json 会自动加上 "type": "module"，这时根目录的配置文件不能以 .js 结尾，要改为 .cjs，如 .commitlintrc.cjs, .prettierrc.cjs, .eslintrc.cjs。
+> NOTE：vite3.x 开始生成的项目，package.json 会自动加上 "type": "module"
+
+什么是 .cjs 和 .mjs ？
+
+1. .cjs 代表使用 CommonJS 模块
+2. .mjs 代表使用 ES 模块
+3. .js 会去 package.json 文件中寻找你的 type 字段来当规范，如果没有 type 字段，默认为 CommonJs 规范，"type": "module"表示使用的是ES模块。
 
 ### 2.2 Eslint+Stylelint+Prettier
 
