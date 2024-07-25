@@ -16,3 +16,4 @@
 - red-packet ([aaee42e](https://github.com/tankaio/vue3-ts-mobie-original/commit/aaee42e051aab4ea046b3819027ddfd910293096))
 - ss ([dfa3b94](https://github.com/tankaio/vue3-ts-mobie-original/commit/dfa3b94b5692462b575f81c4a0617c2a0227c8ec))
 - 代码风格，格式化工具配置 ([dc22060](https://github.com/tankaio/vue3-ts-mobie-original/commit/dc22060e4a75d0e45d5b41ddf10acacfd8a4fb92))
+- 测试log ([ce0a0ba](https://github.com/tankaio/vue3-ts-mobie-original/commit/ce0a0bad019b3792da2852a7d7e6e3866d0008c7))
